@@ -1,10 +1,17 @@
 import ContactList from "./components/ContactList/ContactList";
 import "./App.css";
+import SingleUserDetails from "./components/SingleUserDetails/SingleUserDetails";
+import React, { useState } from "react";
 
 function App() {
+  const [featuredUser, setFeaturedUser] = useState(null);
   return (
     <>
-      <ContactList />
+      {featuredUser ? (
+        <SingleUserDetails setFeaturedUser={setFeaturedUser} />
+      ) : (
+        <ContactList setFeaturedUser={setFeaturedUser} />
+      )}
     </>
   );
 }

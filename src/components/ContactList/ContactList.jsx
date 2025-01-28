@@ -3,12 +3,11 @@ import ContactRow from "../ContactRow/ContactRow";
 
 import axios from "axios";
 
-function ContactList() {
+function ContactList({ setFeaturedUser }) {
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
     axios("https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users")
       .then((data) => {
-        console.log(data.data);
         setContacts(data.data);
       })
       .catch((err) => console.log(err));
@@ -27,7 +26,11 @@ function ContactList() {
       </thead>
       <tbody>
         {contacts.map((contact) => (
-          <ContactRow key={contact.id} contact={contact} />
+          <ContactRow
+            key={contact.id}
+            contact={contact}
+            setFeaturedUser={setFeaturedUser}
+          />
         ))}
       </tbody>
     </table>
