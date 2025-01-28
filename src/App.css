@@ -43,3 +43,14 @@ button {
   color: yellow;
   cursor: pointer;
 }
+
+.single-details > * {
+  padding: 3px;
+  border: solid purple 2px;
+  background-color: black;
+}
+
+.single-details {
+  width: 45%;
+  margin: auto;
+}
