@@ -12,6 +12,12 @@ function ContactList({ setFeaturedUser }) {
       })
       .catch((err) => console.log(err));
   }, []);
+  if (!contacts.length)
+    return (
+      <p style={{ fontSize: "100px", WebkitTextStroke: "4px purple" }}>
+        Loading...
+      </p>
+    );
   return (
     <table>
       <thead>
